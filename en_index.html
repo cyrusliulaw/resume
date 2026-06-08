@@ -19,13 +19,19 @@
             --bg-body: #FCFBF9;       
             --bg-sidebar: #F4F1EA;    
             --border: #E2E8F0;        
+            --nav-height: 70px;       /* 统一导航栏高度 */
             
             --font-serif: 'Source Serif Pro', 'Noto Serif SC', Georgia, serif;
             --font-sans: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        
+        /* 【修复3】平滑滚动 + 全局滚动偏移，防止锚点跳转时标题被导航栏遮挡 */
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: calc(var(--nav-height) + 20px); 
+        }
 
         body {
             font-family: var(--font-sans);
@@ -73,29 +79,98 @@
         .hero-text .value-prop strong { color: var(--primary); font-weight: 600; }
 
         /* ===== Navigation ===== */
+        /* 【修复2】导航栏背景通栏，内部容器限宽，确保左侧与下方文字完美对齐 */
         nav {
-            padding: 20px 0; border-bottom: 1px solid var(--border); position: sticky;
-            top: 0; background: rgba(252, 251, 249, 0.95); backdrop-filter: blur(10px); z-index: 100;
-            display: flex; justify-content: center; align-items: center;
+            border-bottom: 1px solid var(--border); 
+            position: sticky;
+            top: 0; 
+            background: rgba(252, 251, 249, 0.95); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 100;
+            margin: 0 -40px;      /* 抵消外层 container 的 padding，让背景延伸全屏 */
+            padding: 0 40px;      /* 重新加上 padding，让内容与下方对齐 */
+            height: var(--nav-height);
         }
-        nav ul { list-style: none; display: flex; gap: 60px; }
-        nav ul a { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600; color: var(--text-main); letter-spacing: 0.05em; border-bottom: 2px solid transparent; padding-bottom: 6px; transition: all 0.3s ease; }
+        
+        .nav-inner {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            height: 100%;
+            max-width: 1160px;    /* 1240 - 80(左右padding) */
+            margin: 0 auto;
+        }
+
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 40px; 
+            align-items: center;
+        }
+        
+        nav ul a { 
+            font-family: var(--font-serif); 
+            font-size: 1.05rem; 
+            font-weight: 600; 
+            color: var(--text-main); 
+            letter-spacing: 0.05em; 
+            border-bottom: 2px solid transparent; 
+            padding-bottom: 6px; 
+            transition: all 0.3s ease; 
+        }
         nav ul a:hover { color: var(--primary); border-bottom-color: var(--accent); }
 
+        /* 【修复1】语言切换按钮独立在右侧，绝不换行 */
         .lang-switch {
-            position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-            font-size: 0.8rem; font-weight: 600; color: var(--accent);
-            border: 1px solid var(--accent); padding: 6px 16px; border-radius: 4px;
-            letter-spacing: 0.1em; transition: all 0.2s; background: transparent;
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            color: var(--accent);
+            border: 1px solid var(--accent); 
+            padding: 6px 16px; 
+            border-radius: 4px;
+            letter-spacing: 0.1em; 
+            transition: all 0.2s; 
+            background: transparent;
+            white-space: nowrap;       /* 防止文字换行 */
+            flex-shrink: 0;            /* 防止被挤压 */
+            margin-left: 30px;         /* 与导航链接保持距离 */
         }
         .lang-switch:hover {
-            background: var(--accent); color: #ffffff; border-bottom-color: var(--accent);
+            background: var(--accent); 
+            color: #ffffff; 
+            border-bottom-color: var(--accent);
+        }
+
+        /* 汉堡菜单按钮（默认桌面端隐藏） */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--primary);
+        }
+        .menu-toggle svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         /* ===== Main Two-Column Layout ===== */
         .main-layout { display: grid; grid-template-columns: 1fr 360px; gap: 80px; padding: 80px 0 120px; }
         .content-area section { margin-bottom: 90px; } 
         .content-area section:last-child { margin-bottom: 0; }
+        
+        /* 【修复3】为每个 section 增加双重保险，确保锚点跳转不被遮挡 */
+        .content-area section[id] {
+            scroll-margin-top: calc(var(--nav-height) + 20px);
+        }
+
         .section-header { margin-bottom: 35px; }
         .section-title { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; letter-spacing: -0.01em; }
         .section-subtitle { font-size: 0.8rem; font-weight: 600; color: var(--text-light); letter-spacing: 0.15em; text-transform: uppercase; }
@@ -131,7 +206,7 @@
         .pub-title:hover { color: var(--accent); border-bottom-color: var(--accent); }
         .pub-meta { font-size: 0.85rem; color: var(--text-light); text-align: right; flex-shrink: 0; font-style: italic; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
 
-        .sidebar { background: var(--bg-sidebar); padding: 40px 35px; border-radius: 12px; height: fit-content; position: sticky; top: 100px; box-shadow: 0 4px 20px rgba(11, 30, 51, 0.04); border: 1px solid rgba(226, 232, 240, 0.5); }
+        .sidebar { background: var(--bg-sidebar); padding: 40px 35px; border-radius: 12px; height: fit-content; position: sticky; top: calc(var(--nav-height) + 20px); box-shadow: 0 4px 20px rgba(11, 30, 51, 0.04); border: 1px solid rgba(226, 232, 240, 0.5); }
         .sidebar-section { margin-bottom: 40px; }
         .sidebar-section:last-child { margin-bottom: 0; }
         .sidebar-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--accent); display: inline-block; }
@@ -151,25 +226,56 @@
         .contact-item a:hover { color: var(--accent); }
 
         footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--border); background: #ffffff; }
-        footer p { font-size: 0.8rem; color: var(--text-light); }
+        footer p { font-size: 0.8rem; color: var(--text-light); max-width: 800px; margin: 0 auto; }
 
+        /* ===== Responsive Design ===== */
         @media (max-width: 1024px) {
             .main-layout { grid-template-columns: 1fr; gap: 60px; }
             .sidebar { position: static; }
             .services-grid { grid-template-columns: 1fr; }
         }
+
         @media (max-width: 768px) {
             .container { padding: 0 24px; }
+            
+            /* 同步调整 nav 的负边距和 padding */
+            nav { 
+                margin: 0 -24px; 
+                padding: 0 24px; 
+            }
+
             .hero-grid { flex-direction: column; text-align: center; gap: 30px; align-items: center; }
-            .hero-text .name { margin-top: 0; }
+            .hero-text .name { margin-top: 0; font-size: 2.5rem; }
             .hero-text .title-tag { margin: 0 auto 24px; display: table; }
             
-            nav { flex-direction: column; padding: 15px 0; gap: 15px; }
-            nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
-            .lang-switch { position: static; transform: none; align-self: center; }
+            /* 移动端导航布局 */
+            .menu-toggle { display: block; }
+            
+            nav ul { 
+                display: none; /* 默认隐藏，点击后显示 */
+                flex-direction: column; 
+                position: absolute; 
+                top: var(--nav-height); 
+                left: 0; 
+                right: 0; 
+                background: rgba(252, 251, 249, 0.98); 
+                backdrop-filter: blur(10px);
+                padding: 20px 24px; 
+                gap: 20px; 
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
+            nav ul.active { display: flex; }
+            nav ul a { font-size: 1.1rem; }
+
+            .lang-switch { 
+                font-size: 0.75rem; 
+                padding: 5px 12px; 
+                margin-left: auto; 
+            }
 
             .matters-list li { flex-direction: column; gap: 15px; padding: 20px 15px; }
-            .pub-list li { flex-direction: column; gap: 10px; }
+            .pub-list li { flex-direction: column; gap: 10px; align-items: flex-start; }
             .pub-meta { text-align: left; background: none; padding: 0; }
         }
     </style>
@@ -207,14 +313,23 @@
             </div>
         </header>
 
+        <!-- 导航栏结构优化 -->
         <nav>
-            <ul>
-                <li><a href="#profile">Profile</a></li>
-                <li><a href="#services">Core Services</a></li>
-                <li><a href="#experience">Representative Matters</a></li>
-                <li><a href="#insights">Insights</a></li>
-            </ul>
-            <a href="index.html" class="lang-switch">ZH / 中文</a>
+            <div class="nav-inner">
+                <!-- 汉堡菜单按钮 (仅移动端可见) -->
+                <button class="menu-toggle" aria-label="Toggle navigation" onclick="document.querySelector('nav ul').classList.toggle('active')">
+                    <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+
+                <ul>
+                    <li><a href="#profile" onclick="document.querySelector('nav ul').classList.remove('active')">Profile</a></li>
+                    <li><a href="#services" onclick="document.querySelector('nav ul').classList.remove('active')">Core Services</a></li>
+                    <li><a href="#experience" onclick="document.querySelector('nav ul').classList.remove('active')">Representative Matters</a></li>
+                    <li><a href="#insights" onclick="document.querySelector('nav ul').classList.remove('active')">Insights</a></li>
+                </ul>
+                
+                <a href="index.html" class="lang-switch">ZH / 中文</a>
+            </div>
         </nav>
 
         <div class="main-layout">
