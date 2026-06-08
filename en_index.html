@@ -6,7 +6,6 @@
     <title>Cyrus Liu | IP & Technology Law</title>
     <meta name="description" content="Cyrus Liu is an IP professional with a dual US-China perspective and a combined background in STEM and Law, specializing in cross-border tech disputes, global FTO, and trade secrets.">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600;700&family=Source+Serif+Pro:wght@600;700&display=swap" rel="stylesheet">
@@ -77,19 +76,20 @@
         nav {
             padding: 20px 0; border-bottom: 1px solid var(--border); position: sticky;
             top: 0; background: rgba(252, 251, 249, 0.95); backdrop-filter: blur(10px); z-index: 100;
-            display: flex; justify-content: space-between; align-items: center;
+            display: flex; justify-content: center; align-items: center;
         }
-        nav ul { list-style: none; display: flex; gap: 40px; }
-        nav ul a { font-size: 0.9rem; font-weight: 500; color: var(--text-light); letter-spacing: 0.02em; border-bottom: none; padding-bottom: 4px; }
-        nav ul a:hover { color: var(--primary); }
+        nav ul { list-style: none; display: flex; gap: 60px; }
+        nav ul a { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600; color: var(--text-main); letter-spacing: 0.05em; border-bottom: 2px solid transparent; padding-bottom: 6px; transition: all 0.3s ease; }
+        nav ul a:hover { color: var(--primary); border-bottom-color: var(--accent); }
 
         .lang-switch {
+            position: absolute; right: 0; top: 50%; transform: translateY(-50%);
             font-size: 0.8rem; font-weight: 600; color: var(--accent);
             border: 1px solid var(--accent); padding: 6px 16px; border-radius: 4px;
-            letter-spacing: 0.1em; transition: all 0.2s; border-bottom: 1px solid var(--accent);
+            letter-spacing: 0.1em; transition: all 0.2s; background: transparent;
         }
         .lang-switch:hover {
-            background: var(--accent); color: #ffffff; border-bottom: 1px solid var(--accent);
+            background: var(--accent); color: #ffffff; border-bottom-color: var(--accent);
         }
 
         /* ===== Main Two-Column Layout ===== */
@@ -118,9 +118,7 @@
             border-bottom: 1px dashed var(--border); display: flex; gap: 25px; 
             align-items: flex-start; border-radius: 8px; transition: all 0.3s ease; 
         }
-        .matters-list li:hover {
-            background: #ffffff; border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
+        .matters-list li:hover { background: #ffffff; border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
         .matters-list li:last-child { border-bottom: none; }
         .matter-tag { flex-shrink: 0; padding: 6px 14px; background: var(--primary); color: #ffffff; font-size: 0.75rem; font-weight: 600; border-radius: 4px; letter-spacing: 0.05em; margin-top: 4px; text-transform: uppercase; }
         .matter-desc { font-size: 1rem; line-height: 1.8; }
@@ -165,8 +163,11 @@
             .hero-grid { flex-direction: column; text-align: center; gap: 30px; align-items: center; }
             .hero-text .name { margin-top: 0; }
             .hero-text .title-tag { margin: 0 auto 24px; display: table; }
-            nav { flex-direction: column; gap: 15px; }
+            
+            nav { flex-direction: column; padding: 15px 0; gap: 15px; }
             nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
+            .lang-switch { position: static; transform: none; align-self: center; }
+
             .matters-list li { flex-direction: column; gap: 15px; padding: 20px 15px; }
             .pub-list li { flex-direction: column; gap: 10px; }
             .pub-meta { text-align: left; background: none; padding: 0; }
@@ -176,7 +177,6 @@
 <body>
 
     <div class="container">
-        <!-- Hero Section -->
         <header class="hero">
             <div class="hero-grid">
                 <div class="hero-left">
@@ -207,7 +207,6 @@
             </div>
         </header>
 
-        <!-- Navigation -->
         <nav>
             <ul>
                 <li><a href="#profile">Profile</a></li>
@@ -215,11 +214,9 @@
                 <li><a href="#experience">Representative Matters</a></li>
                 <li><a href="#insights">Insights</a></li>
             </ul>
-            <!-- Switch back to Chinese -->
             <a href="index.html" class="lang-switch">ZH / 中文</a>
         </nav>
 
-        <!-- Main Two-Column Layout -->
         <div class="main-layout">
             <main class="content-area">
                 
