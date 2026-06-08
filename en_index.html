@@ -199,7 +199,21 @@
         .matter-tag { flex-shrink: 0; padding: 6px 14px; background: var(--primary); color: #ffffff; font-size: 0.75rem; font-weight: 600; border-radius: 4px; letter-spacing: 0.05em; margin-top: 4px; text-transform: uppercase; }
         .matter-desc { font-size: 1rem; line-height: 1.8; }
         .matter-desc strong { color: var(--primary); font-weight: 600; }
-
+        /* ===== 修复 Representative Matters 对齐问题 ===== */
+        .matters-list li {
+            display: flex !important; /* 强制使用 flex 布局 */
+            gap: 28px !important;     /* 确保固定间距 */
+            align-items: flex-start !important; /* 顶部对齐 */
+        }
+        
+        .matter-tag {
+            flex-shrink: 0 !important; /* 防止标签被压缩 */
+            margin-top: 0 !important;  /* 重置顶部间距 */
+        }
+        
+        .matter-desc {
+            flex: 1 !important; /* 确保内容区域占据剩余空间 */
+        }
         .pub-list { list-style: none; }
         .pub-list li { padding: 18px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
         .pub-list li:last-child { border-bottom: none; }
