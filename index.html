@@ -4,616 +4,562 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>刘心扬 Cyrus Liu | 知识产权与科技法</title>
-    <meta name="description" content="刘心扬，兼具中美双重视角与理工法复合背景的新生代法律专业人员。专注于跨境技术争议解决、全球FTO分析与商业秘密保护。">
+    <meta name="description" content="刘心扬，兼具中美双重视角与理工法复合背景的知识产权专业人士。专注于跨境技术争议解决、全球FTO分析与商业秘密保护。">
+    
+    <!-- 引入专业字体：Noto Serif SC (中文衬线), Source Serif Pro (英文衬线), Inter (正文无衬线) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@600;700&family=Source+Serif+Pro:wght@600;700&display=swap" rel="stylesheet">
+
     <style>
-        /* ===== Reset & Base ===== */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        :root {
+            --primary: #0B1E33;       /* 深海藏青：权威、严谨 */
+            --accent: #8C704A;        /* 暗金色：克制的高级感、常春藤名校质感 */
+            --text-main: #2D3748;     /* 正文深灰 */
+            --text-light: #64748B;    /* 辅助浅灰 */
+            --bg-body: #FCFBF9;       /* 温暖的纸张白背景 */
+            --bg-sidebar: #F4F1EA;    /* 侧边栏微暖的米灰色 */
+            --border: #E2E8F0;        /* 分割线 */
+            
+            --font-serif: 'Noto Serif SC', 'Source Serif Pro', Georgia, serif;
+            --font-sans: 'Inter', 'Noto Sans SC', -apple-system, sans-serif;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
-            background-color: #ffffff;
-            color: #334155;
-            line-height: 1.75;
+            font-family: var(--font-sans);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-size: 16.5px; /* 适合长文阅读的字号 */
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
         }
 
-        a { color: #0A2540; text-decoration: none; transition: all 0.2s ease; }
-        a:hover { color: #2563eb; }
+        a { color: var(--primary); text-decoration: none; transition: color 0.2s; border-bottom: 1px solid transparent; }
+        a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-        /* ===== Layout ===== */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
 
-        /* ===== Hero Section (Vibrant & Professional) ===== */
+        /* ===== Hero Section (照片与简介) ===== */
         .hero {
-            background: linear-gradient(135deg, #0A2540 0%, #112D5A 100%);
-            color: #ffffff;
-            padding: 6rem 0 5rem;
-            position: relative;
-            overflow: hidden;
+            padding: 80px 0 60px;
+            border-bottom: 1px solid var(--border);
         }
-        /* 增加活力的几何背景装饰 */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, rgba(10,37,64,0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        
         .hero-grid {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 4rem;
+            display: flex;
+            gap: 50px;
             align-items: center;
-            position: relative;
-            z-index: 2;
         }
-        
         .hero-photo {
-            width: 100%;
-            max-width: 280px;
-            height: 350px;
+            width: 200px;
+            height: 260px;
             object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            background: #1e293b;
+            border-radius: 4px;
+            box-shadow: 0 15px 30px -10px rgba(11, 30, 51, 0.2);
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+            background: #e2e8f0;
         }
-        
         .hero-text .name {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #ffffff;
+            font-family: var(--font-serif);
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--primary);
             line-height: 1.1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 8px;
             letter-spacing: -0.02em;
         }
         .hero-text .name-en {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: #94a3b8;
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 20px;
             letter-spacing: 0.05em;
-            margin-bottom: 1.5rem;
         }
-        .hero-text .title {
+        .hero-text .title-tag {
             display: inline-block;
             font-size: 0.85rem;
             font-weight: 600;
-            color: #60a5fa;
-            background: rgba(37, 99, 235, 0.15);
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
+            color: var(--accent);
+            background: rgba(140, 112, 74, 0.08);
+            padding: 6px 16px;
+            border-radius: 2px;
             letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(96, 165, 250, 0.3);
+            margin-bottom: 24px;
+            border: 1px solid rgba(140, 112, 74, 0.2);
         }
         .hero-text .value-prop {
             font-size: 1.15rem;
-            color: #cbd5e1;
+            color: var(--text-main);
             line-height: 1.9;
-            /* 去除了 max-width 限制 */
+            max-width: 700px;
         }
-        .hero-text .value-prop strong {
-            color: #ffffff;
-            font-weight: 600;
-        }
+        .hero-text .value-prop strong { color: var(--primary); font-weight: 600; }
 
         /* ===== Navigation ===== */
         nav {
-            padding: 1.2rem 0;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
+            background: rgba(252, 251, 249, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 100;
         }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2.5rem;
-        }
+        nav ul { list-style: none; display: flex; gap: 40px; }
         nav a {
-            color: #64748b;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 500;
+            color: var(--text-light);
             letter-spacing: 0.02em;
+            border-bottom: none;
         }
-        nav a:hover { color: #0A2540; }
+        nav a:hover { color: var(--primary); }
 
-        /* ===== Sections ===== */
-        section { padding: 5rem 0; border-bottom: 1px solid #f1f5f9; }
-        section:last-of-type { border-bottom: none; }
-        
+        /* ===== Main Two-Column Layout ===== */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 360px; /* 左侧自适应，右侧固定 360px */
+            gap: 80px;
+            padding: 80px 0 120px;
+        }
+
+        /* --- Left Column (Content) --- */
+        .content-area section { margin-bottom: 80px; }
+        .content-area section:last-child { margin-bottom: 0; }
+
+        .section-header { margin-bottom: 35px; }
         .section-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #0A2540;
-            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
             letter-spacing: -0.01em;
         }
         .section-subtitle {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #64748b;
-            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            margin-bottom: 3rem;
         }
 
-        /* ===== Profile (No width limit) ===== */
-        .profile-content p {
-            font-size: 1.05rem;
-            color: #475569;
-            margin-bottom: 1.5rem;
+        .text-block p {
+            margin-bottom: 20px;
             text-align: justify;
-            line-height: 1.85;
+            color: #334155;
         }
-        .profile-content p strong { color: #0A2540; font-weight: 600; }
+        .text-block p strong { color: var(--primary); font-weight: 600; }
 
-        /* ===== Data Highlights (增加活力的视觉抓手) ===== */
-        .highlights {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-            padding-top: 3rem;
-            border-top: 1px dashed #e2e8f0;
-        }
-        .highlight-item .number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #0A2540;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        .highlight-item .label {
-            font-size: 0.9rem;
-            color: #64748b;
-            line-height: 1.5;
-        }
-
-        /* ===== Services ===== */
+        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
         }
-        .service-card {
-            padding: 2.5rem;
-            background: #f8fafc;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        .service-item h3 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 600;
         }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 4px; height: 100%;
-            background: #2563eb;
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
-            transform-origin: bottom;
-        }
-        .service-card:hover {
-            background: #ffffff;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-            border-color: #cbd5e1;
-        }
-        .service-card:hover::before { transform: scaleY(1); }
-        
-        .service-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 1rem;
-            color: #0A2540;
-            font-weight: 700;
-        }
-        .service-card p {
+        .service-item p {
             font-size: 0.95rem;
-            color: #64748b;
+            color: var(--text-light);
             line-height: 1.7;
         }
 
-        /* ===== Matters List ===== */
+        /* Matters List */
         .matters-list { list-style: none; }
         .matters-list li {
-            padding: 2rem 0;
-            border-bottom: 1px solid #f1f5f9;
+            padding: 25px 0;
+            border-bottom: 1px dashed var(--border);
             display: flex;
-            gap: 2rem;
+            gap: 25px;
             align-items: flex-start;
         }
         .matters-list li:last-child { border-bottom: none; }
         .matter-tag {
             flex-shrink: 0;
-            padding: 0.4rem 1rem;
-            background: #eff6ff;
-            color: #1d4ed8;
+            padding: 6px 14px;
+            background: var(--primary);
+            color: #ffffff;
             font-size: 0.75rem;
-            font-weight: 700;
-            border-radius: 6px;
+            font-weight: 600;
+            border-radius: 2px;
             letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-top: 0.2rem;
+            margin-top: 4px;
         }
-        .matter-desc {
-            font-size: 1rem;
-            color: #334155;
-            line-height: 1.75;
-        }
-        .matter-desc strong { color: #0A2540; font-weight: 600; }
+        .matter-desc { font-size: 1rem; line-height: 1.8; }
+        .matter-desc strong { color: var(--primary); font-weight: 600; }
 
-        /* ===== Insights ===== */
+        /* Insights */
         .pub-list { list-style: none; }
         .pub-list li {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #f1f5f9;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            gap: 2rem;
+            gap: 20px;
         }
         .pub-list li:last-child { border-bottom: none; }
         .pub-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #0A2540;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--primary);
             line-height: 1.5;
             flex: 1;
         }
-        .pub-title:hover { color: #2563eb; text-decoration: underline; }
+        .pub-title:hover { color: var(--accent); border-bottom-color: var(--accent); }
         .pub-meta {
-            font-size: 0.8rem;
-            color: #94a3b8;
+            font-size: 0.85rem;
+            color: var(--text-light);
             text-align: right;
             flex-shrink: 0;
-            max-width: 200px;
+            font-style: italic;
         }
 
-        /* ===== Credentials ===== */
-        .cred-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+        /* --- Right Column (Sidebar) --- */
+        .sidebar {
+            background: var(--bg-sidebar);
+            padding: 40px 35px;
+            border-radius: 6px;
+            height: fit-content;
+            position: sticky;
+            top: 100px; /* 跟随滚动 */
+            box-shadow: 0 4px 20px rgba(11, 30, 51, 0.04);
+            border: 1px solid rgba(226, 232, 240, 0.5);
         }
-        .cred-col h3 {
+
+        .sidebar-section { margin-bottom: 40px; }
+        .sidebar-section:last-child { margin-bottom: 0; }
+
+        .sidebar-title {
+            font-family: var(--font-serif);
             font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #0A2540;
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
         }
-        .cred-col h3::before {
-            content: '';
-            width: 8px; height: 8px;
-            background: #2563eb;
-            border-radius: 2px;
-        }
-        .cred-col ul { list-style: none; }
-        .cred-col li {
+
+        .sidebar-list { list-style: none; }
+        .sidebar-list li {
+            margin-bottom: 18px;
             font-size: 0.95rem;
-            color: #334155;
-            margin-bottom: 1.2rem;
-            padding-left: 1.5rem;
-            position: relative;
-            line-height: 1.6;
+            line-height: 1.5;
         }
-        .cred-col li::before {
-            content: '—';
-            position: absolute;
-            left: 0;
-            color: #cbd5e1;
+        .sidebar-list li:last-child { margin-bottom: 0; }
+        .sidebar-list strong {
+            display: block;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 2px;
         }
-        .cred-col .sub-text {
+        .sidebar-list span {
             display: block;
             font-size: 0.85rem;
-            color: #64748b;
-            margin-top: 0.2rem;
+            color: var(--text-light);
         }
 
-        /* ===== Contact ===== */
-        .contact-section {
-            background: #f8fafc;
-            padding: 5rem 0;
-            margin-top: 2rem;
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
-        .contact-grid {
-            display: flex;
-            gap: 4rem;
-            flex-wrap: wrap;
-        }
+
+        .contact-item { margin-bottom: 15px; }
         .contact-item span {
             display: block;
             font-size: 0.75rem;
-            font-weight: 700;
-            color: #64748b;
+            font-weight: 600;
+            color: var(--text-light);
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
+            margin-bottom: 4px;
         }
         .contact-item a, .contact-item p {
-            font-size: 1.1rem;
-            color: #0A2540;
-            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 500;
+            word-break: break-all;
         }
 
         /* ===== Footer ===== */
         footer {
-            padding: 2.5rem 0;
+            padding: 40px 0;
             text-align: center;
-            background: #0A2540;
-            color: #64748b;
+            border-top: 1px solid var(--border);
+            background: #ffffff;
         }
-        footer p { font-size: 0.8rem; }
+        footer p { font-size: 0.8rem; color: var(--text-light); }
 
         /* ===== Responsive ===== */
-        @media (max-width: 900px) {
-            .container { padding: 0 2rem; }
-            .hero { padding: 4rem 0; }
-            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
-            .hero-photo { margin: 0 auto; height: 300px; }
-            .hero-text .title { margin: 0 auto 2rem; }
-            .services-grid, .cred-grid { grid-template-columns: 1fr; }
-            .highlights { grid-template-columns: 1fr; text-align: center; }
-            nav ul { justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-            .pub-list li { flex-direction: column; gap: 0.5rem; }
-            .pub-meta { text-align: left; max-width: 100%; }
+        @media (max-width: 1024px) {
+            .main-layout { grid-template-columns: 1fr; gap: 60px; }
+            .sidebar { position: static; }
+            .services-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 24px; }
+            .hero-grid { flex-direction: column; text-align: center; gap: 30px; }
+            .hero-photo { width: 160px; height: 210px; }
+            .hero-text .name { font-size: 2.4rem; }
+            nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
+            .matters-list li { flex-direction: column; gap: 10px; }
+            .pub-list li { flex-direction: column; gap: 5px; }
+            .pub-meta { text-align: left; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
             <div class="hero-grid">
                 <img src="profile.png" alt="刘心扬 Cyrus Liu" class="hero-photo" 
-                     onerror="this.style.background='#1e293b'; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 280 350%22%3E%3Crect width=%22280%22 height=%22350%22 fill=%22%231e293b%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2364748b%22 font-family=%22sans-serif%22 font-size=%2218%22%3EPhoto%3C/text%3E%3C/svg%3E'">
+                     onerror="this.style.background='#cbd5e1'; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 260%22%3E%3Crect width=%22200%22 height=%22260%22 fill=%22%23cbd5e1%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2364748b%22 font-family=%22sans-serif%22 font-size=%2214%22%3EPhoto%3C/text%3E%3C/svg%3E'">
                 
                 <div class="hero-text">
                     <h1 class="name">刘心扬</h1>
                     <p class="name-en">Cyrus Liu</p>
-                    <span class="title">知识产权 · 专利</span>
+                    <span class="title-tag">知识产权 · 专利</span>
                     <p class="value-prop">
                         兼具<strong>中美双重视角</strong>与<strong>理工法复合背景</strong>的知识产权专业人士。专注于为科技创新企业、跨国公司及科研机构提供跨境技术争议解决、全球自由实施（FTO）分析、商业秘密保护及数据合规的战略性法律服务。依托材料科学与工程及知识产权法的双重学科训练，能够将前沿技术实质转化为严密的法律保护策略。
                     </p>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
+        <!-- Navigation -->
+        <nav>
             <ul>
                 <li><a href="#profile">专业背景</a></li>
                 <li><a href="#services">核心业务</a></li>
                 <li><a href="#experience">代表性项目</a></li>
                 <li><a href="#insights">专业洞察</a></li>
-                <li><a href="#credentials">资质与教育</a></li>
-                <li><a href="#contact">联系方式</a></li>
             </ul>
+        </nav>
+
+        <!-- Main Two-Column Layout -->
+        <div class="main-layout">
+            
+            <!-- Left Column: Content -->
+            <main class="content-area">
+                
+                <!-- Profile (段落化描述资质与背景) -->
+                <section id="profile">
+                    <div class="section-header">
+                        <h2 class="section-title">专业背景</h2>
+                        <p class="section-subtitle">Professional Profile</p>
+                    </div>
+                    <div class="text-block">
+                        <p>
+                            在技术迭代与全球化交织的时代，知识产权已不再是单纯的防御工具，而是企业的核心商业资产。我的专业理念建立在<strong>技术理解力</strong>与<strong>跨国法律逻辑</strong>的双重基础之上。凭借材料科学与工程（工学学士）与知识产权法（法律硕士）的交叉学科背景，我能够深入理解半导体、新能源、生物医药及人工智能等前沿领域的技术实质，并将其转化为严密的法律保护策略。
+                        </p>
+                        <p>
+                            我先后在中伦、天同、浩天等中国顶尖律师事务所的知识产权团队深度实践，处理了大量涉及复杂技术比对的侵权诉讼与跨境合规项目，积累了覆盖全球十余个主要国家及地区的自由实施（FTO）分析经验。
+                        </p>
+                        <p>
+                            目前，我于宾夕法尼亚大学凯里法学院（Penn Carey Law）攻读知识产权与科技法方向法学硕士（LL.M.）。通过独立请愿，已获得<strong>纽约州上诉法院（Court of Appeals）的特别审查批准</strong>，取得参加纽约州律师考试的资格。结合我所持有的中国法律职业资格与专利代理师双证，这使我能够以中美双边的法律视野，协助客户在全球化布局中规避风险、锁定胜局。
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Services -->
+                <section id="services">
+                    <div class="section-header">
+                        <h2 class="section-title">核心业务</h2>
+                        <p class="section-subtitle">Core Services</p>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-item">
+                            <h3>跨境技术争议与诉讼支持</h3>
+                            <p>协助处理涉及中美欧多法域的专利侵权、商标权属及不正当竞争纠纷。提供从技术特征比对、侵权判定分析到诉讼策略制定的全链条支持。</p>
+                        </div>
+                        <div class="service-item">
+                            <h3>全球 FTO 与出海合规</h3>
+                            <p>为科技企业“走出去”提供全球自由实施（FTO）检索与侵权风险评估。结合目标市场的数据合规与出口管制要求，构建系统性的出海防火墙。</p>
+                        </div>
+                        <div class="service-item">
+                            <h3>商业秘密与资产战略</h3>
+                            <p>协助新能源、高科技企业从0到1搭建商业秘密保护体系。在技术许可、跨境交易及投融资并购中，提供深度的知识产权尽职调查服务。</p>
+                        </div>
+                        <div class="service-item">
+                            <h3>复杂技术合同与许可</h3>
+                            <p>起草、审查及谈判跨境技术许可协议、研发合作协议及保密协议（NDA）。确保法律条款与商业目的、技术边界的精准契合。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Experience (中文标签) -->
+                <section id="experience">
+                    <div class="section-header">
+                        <h2 class="section-title">代表性项目</h2>
+                        <p class="section-subtitle">Representative Matters</p>
+                    </div>
+                    <ul class="matters-list">
+                        <li>
+                            <span class="matter-tag">诉讼支持</span>
+                            <div class="matter-desc">
+                                协助某顶尖红圈所合伙人团队，处理多起涉及复杂机械与电子领域的<strong>专利侵权及商业秘密诉讼</strong>。独立完成中外专利文本翻译、技术特征比对分析及类案检索，为庭审策略提供核心技术支撑。
+                            </div>
+                        </li>
+                        <li>
+                            <span class="matter-tag">出海合规</span>
+                            <div class="matter-desc">
+                                主导某科技硬件企业的<strong>全球 FTO（自由实施）分析项目</strong>，排查涉及 12 个国家/地区/组织的专利壁垒与侵权风险，为企业产品出海提供规避设计与市场准入的法律意见。
+                            </div>
+                        </li>
+                        <li>
+                            <span class="matter-tag">商业秘密</span>
+                            <div class="matter-desc">
+                                为某头部新能源电池企业<strong>系统性搭建商业秘密保护合规体系</strong>，涵盖员工保密协议重构、核心技术隔离机制及竞业限制策略，防范核心技术人员流失带来的资产减损。
+                            </div>
+                        </li>
+                        <li>
+                            <span class="matter-tag">跨境交易</span>
+                            <div class="matter-desc">
+                                为某知名互联网 APP 出海项目提供<strong>跨国数据合规与内容合规审查</strong>；审核并修改多份跨境技术交易与许可协议，平衡中美法律管辖权冲突与商业利益。
+                            </div>
+                        </li>
+                        <li>
+                            <span class="matter-tag">尽职调查</span>
+                            <div class="matter-desc">
+                                参与某大型跨国医药企业的<strong>知识产权尽职调查项目</strong>，排查专利权属瑕疵与潜在诉讼风险；并协助某大型外企完成内部知识产权资产的风险排查与合规整改。
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Insights -->
+                <section id="insights">
+                    <div class="section-header">
+                        <h2 class="section-title">专业洞察与学术成果</h2>
+                        <p class="section-subtitle">Insights & Publications</p>
+                    </div>
+                    <ul class="pub-list">
+                        <li>
+                            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5434435" target="_blank" class="pub-title">The 2024 Patent Valuation and Damages Workshop: A US-China Comparative Law Perspective</a>
+                            <span class="pub-meta">SSRN · 参与编写</span>
+                        </li>
+                        <li>
+                            <span class="pub-title">《知识产权行政执法案例启示录》</span>
+                            <span class="pub-meta">王迁 主编 · 参编作者</span>
+                        </li>
+                        <li>
+                            <a href="https://www.law.upenn.edu/live/profiles/3662-penn-entrepreneurial-engineers-and-penn-carey-law" target="_blank" class="pub-title">Penn Entrepreneurial Engineers and Penn Carey Law (PEEPL)</a>
+                            <span class="pub-meta">Project Leader</span>
+                        </li>
+                        <li>
+                             <a href="http://www.tiantonglaw.com/Content/2023/01-14/1810049801.html" target="_blank" class="pub-title">行业洞察：《混战中的动力电池企业与知识产权战略》</a>
+                            <span class="pub-meta">实务研究文章</span>
+                        </li>
+                        <li>
+                             <a href="http://www.tiantonglaw.com/Articles/?text=2022%E5%8C%BB%E8%8D%AF%E7%9F%A5%E8%AF%86%E4%BA%A7%E6%9D%83%E5%9B%9E%E9%A1%BE%E4%B8%8E%E5%B1%95%E6%9C%9B" target="_blank" class="pub-title">行业洞察：《2022医药知识产权回顾与展望》</a>
+                            <span class="pub-meta">实务研究文章</span>
+                        </li>
+                        <li>
+                            <a href="https://ieeexplore.ieee.org/document/9719272" target="_blank" class="pub-title">Finite Element Modelling and Failure Behaviour Analysis of CFRP Thin-Walled Tube</a>
+                            <span class="pub-meta">EI / IEEE · 共同第一作者</span>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+
+            <!-- Right Column: Sidebar (列表展示资质与教育) -->
+            <aside class="sidebar">
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">教育背景</h3>
+                    <ul class="sidebar-list">
+                        <li>
+                            <strong>美国宾夕法尼亚大学凯里法学院 (University of Pennsylvania Carey Law School)</strong>
+                            <span>法学硕士 (LL.M.), 知识产权与科技法 · 院长奖学金</span>
+                        </li>
+                        <li>
+                            <strong>华东政法大学</strong>
+                            <span>法律硕士 (J.M.), 知识产权法 · 国家奖学金</span>
+                        </li>
+                        <li>
+                            <strong>中国矿业大学</strong>
+                            <span>工学学士 (B.E.), 材料科学与工程</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">专业资质</h3>
+                    <ul class="sidebar-list">
+                        <li>
+                            <strong>美国纽约州律师考试资格</strong>
+                            <span>经纽约州上诉法院 (Court of Appeals) 特别审查批准</span>
+                        </li>
+                        <li>
+                            <strong>中国法律职业资格 (A证)</strong>
+                            <span>中华人民共和国司法部</span>
+                        </li>
+                        <li>
+                            <strong>中国专利代理师资格</strong>
+                            <span>中华人民共和国国家知识产权局 (CNIPA)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">技术专长</h3>
+                    <div class="tags">
+                        <span class="tag">半导体</span>
+                        <span class="tag">新能源</span>
+                        <span class="tag">人工智能</span>
+                        <span class="tag">生物医药</span>
+                        <span class="tag">机械与电子</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">联系方式</h3>
+                    <div class="contact-item">
+                        <span>电子邮件</span>
+                        <a href="mailto:cyrusliulaw@outlook.com">cyrusliulaw@outlook.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>电话 / 微信</span>
+                        <p>+86 191 1717 7785</p>
+                    </div>
+                    <div class="contact-item">
+                        <span>地点</span>
+                        <p>Shanghai, China</p>
+                    </div>
+                </div>
+            </aside>
+
         </div>
-    </nav>
-
-    <main>
-        <!-- Profile Section -->
-        <section id="profile">
-            <div class="container">
-                <h2 class="section-title">专业背景</h2>
-                <p class="section-subtitle">Professional Profile</p>
-                <div class="profile-content">
-                    <p>
-                        在技术迭代与全球化交织的时代，知识产权已不再是单纯的防御工具，而是企业的核心商业资产。我的执业理念建立在<strong>技术理解力</strong>与<strong>跨国法律逻辑</strong>的双重基础之上。凭借材料科学与工程（工学学士）与知识产权法（法律硕士）的交叉学科背景，我能够深入理解半导体、新能源、生物医药及人工智能等前沿领域的技术实质，并将其转化为严密的法律保护策略。
-                    </p>
-                    <p>
-                        我先后在中伦、天同、浩天等中国顶尖律师事务所的知识产权团队深度实践，处理了大量涉及复杂技术比对的侵权诉讼与跨境合规项目。目前，我于宾夕法尼亚大学凯里法学院（Penn Carey Law）攻读知识产权与科技法方向法学硕士（LL.M.），并已获得纽约州上诉法院（Court of Appeals）的特别审查批准，取得参加纽约州律师考试的资格。这使我能够以中美双边的法律视野，协助客户在全球化布局中规避风险、锁定胜局。
-                    </p>
-                </div>
-
-                <!-- Data Highlights -->
-                <div class="highlights">
-                    <div class="highlight-item">
-                        <div class="number">12+</div>
-                        <div class="label">覆盖国家/地区的<br>全球 FTO 分析经验</div>
-                    </div>
-                    <div class="highlight-item">
-                        <div class="number">3.99</div>
-                        <div class="label">华东政法大学法学硕士 GPA<br>（年级第一 / 国家奖学金）</div>
-                    </div>
-                    <div class="highlight-item">
-                        <div class="number">Dual</div>
-                        <div class="label">中国法律职业资格<br>与中国专利代理师双证</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services">
-            <div class="container">
-                <h2 class="section-title">核心业务</h2>
-                <p class="section-subtitle">Core Services</p>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h3>跨境技术争议与诉讼支持</h3>
-                        <p>协助处理涉及中美欧多法域的专利侵权、商标权属及不正当竞争纠纷。提供从技术特征比对、侵权判定分析到诉讼策略制定的全链条支持，应对复杂的跨境知识产权冲突。</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>全球 FTO 与出海合规</h3>
-                        <p>为科技企业“走出去”提供全球自由实施（FTO）检索与侵权风险评估，覆盖全球主要国家及地区。结合目标市场的数据合规、内容审查及出口管制要求，构建系统性的出海合规防火墙。</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>商业秘密与资产战略</h3>
-                        <p>协助新能源、高科技企业从0到1搭建商业秘密保护体系，开展内部IP风险排查。在技术许可、跨境交易及投融资并购中，提供深度的知识产权尽职调查与协议审查服务。</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>复杂技术合同与许可</h3>
-                        <p>起草、审查及谈判跨境技术许可协议、研发合作协议及保密协议（NDA）。依托对技术底层逻辑的理解，确保法律条款与商业目的、技术边界的精准契合。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience">
-            <div class="container">
-                <h2 class="section-title">代表性项目</h2>
-                <p class="section-subtitle">Representative Matters</p>
-                <ul class="matters-list">
-                    <li>
-                        <span class="matter-tag">Litigation</span>
-                        <div class="matter-desc">
-                            协助某顶尖红圈所合伙人团队，处理多起涉及复杂机械与电子领域的<strong>专利侵权及商业秘密诉讼</strong>。独立完成中外专利文本翻译、技术特征比对分析及类案检索，为庭审策略提供核心技术支撑。
-                        </div>
-                    </li>
-                    <li>
-                        <span class="matter-tag">FTO & Compliance</span>
-                        <div class="matter-desc">
-                            主导某科技硬件企业的<strong>全球 FTO（自由实施）分析项目</strong>，排查涉及 12 个国家/地区/组织的专利壁垒与侵权风险，为企业产品出海提供规避设计与市场准入的法律意见。
-                        </div>
-                    </li>
-                    <li>
-                        <span class="matter-tag">Trade Secret</span>
-                        <div class="matter-desc">
-                            为某头部新能源电池企业<strong>系统性搭建商业秘密保护合规体系</strong>，涵盖员工保密协议重构、核心技术隔离机制及竞业限制策略，防范核心技术人员流失带来的资产减损。
-                        </div>
-                    </li>
-                    <li>
-                        <span class="matter-tag">Cross-border</span>
-                        <div class="matter-desc">
-                            为某知名互联网 APP 出海项目提供<strong>跨国数据合规与内容合规审查</strong>；审核并修改多份跨境技术交易与许可协议，平衡中美法律管辖权冲突与商业利益。
-                        </div>
-                    </li>
-                    <li>
-                        <span class="matter-tag">Due Diligence</span>
-                        <div class="matter-desc">
-                            参与某大型跨国医药企业的<strong>知识产权尽职调查项目</strong>，排查专利权属瑕疵与潜在诉讼风险；并协助某大型外企完成内部知识产权资产的风险排查与合规整改。
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Insights Section -->
-        <section id="insights">
-            <div class="container">
-                <h2 class="section-title">专业洞察与学术成果</h2>
-                <p class="section-subtitle">Insights & Publications</p>
-                <ul class="pub-list">
-                    <li>
-                        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5434435" target="_blank" class="pub-title">The 2024 Patent Valuation and Damages Workshop: A US-China Comparative Law Perspective</a>
-                        <span class="pub-meta">SSRN · 参与编写</span>
-                    </li>
-                    <li>
-                        <span class="pub-title">《知识产权行政执法案例启示录》</span>
-                        <span class="pub-meta">王迁 主编 · 参编作者</span>
-                    </li>
-                    <li>
-                        <a href="https://www.law.upenn.edu/live/profiles/3662-penn-entrepreneurial-engineers-and-penn-carey-law" target="_blank" class="pub-title">Penn Entrepreneurial Engineers and Penn Carey Law (PEEPL)</a>
-                        <span class="pub-meta">Project Leader</span>
-                    </li>
-                    <li>
-                        <span class="pub-title">行业洞察：《2022医药知识产权回顾与展望》 / 《混战中的动力电池企业与知识产权战略》</span>
-                        <span class="pub-meta">实务研究文章</span>
-                    </li>
-                    <li>
-                        <a href="https://ieeexplore.ieee.org/document/9719272" target="_blank" class="pub-title">Finite Element Modelling and Failure Behaviour Analysis of CFRP Thin-Walled Tube</a>
-                        <span class="pub-meta">EI / IEEE · 第一作者</span>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Credentials Section -->
-        <section id="credentials">
-            <div class="container">
-                <h2 class="section-title">资质与教育背景</h2>
-                <p class="section-subtitle">Credentials & Education</p>
-                <div class="cred-grid">
-                    <div class="cred-col">
-                        <h3>专业资质 Admissions</h3>
-                        <ul>
-                            <li>
-                                <strong>美国纽约州律师考试资格</strong>
-                                <span class="sub-text">经纽约州上诉法院 (Court of Appeals) 特别审查批准</span>
-                            </li>
-                            <li>
-                                <strong>中国法律职业资格</strong>
-                                <span class="sub-text">中华人民共和国司法部 (A证)</span>
-                            </li>
-                            <li>
-                                <strong>中国专利代理师资格</strong>
-                                <span class="sub-text">国家知识产权局 (CNIPA)</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cred-col">
-                        <h3>教育背景 Education</h3>
-                        <ul>
-                            <li>
-                                <strong>LL.M., 知识产权与科技法</strong>
-                                <span class="sub-text">宾夕法尼亚大学凯里法学院 · 院长奖学金</span>
-                            </li>
-                            <li>
-                                <strong>法律硕士 (J.M.), 知识产权法</strong>
-                                <span class="sub-text">华东政法大学 · 保研 · 国家奖学金</span>
-                            </li>
-                            <li>
-                                <strong>工学学士 (B.E.), 材料科学与工程</strong>
-                                <span class="sub-text">中国矿业大学 </span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">联系方式</h2>
-            <p class="section-subtitle">Contact</p>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <span>Email 邮箱</span>
-                    <a href="mailto:cyrusliulaw@outlook.com">cyrusliulaw@outlook.com</a>
-                </div>
-                <div class="contact-item">
-                    <span>Phone / WeChat 电话</span>
-                    <p>+86 191 1717 7785</p>
-                </div>
-                <div class="contact-item">
-                    <span>Locations 所在地</span>
-                    <p>Philadelphia, United States / Shanghai, China</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2026 刘心扬 Cyrus Liu. All rights reserved. | 本网站内容仅供展示专业背景，不构成正式法律意见。</p>
+            <p>© 2026 刘心扬 Cyrus Liu. All rights reserved. | 本网站内容仅供展示交流，不构成法律意见、建议或决策依据。本网站任何文字、图片、音视频等内容，未经授权不得转载。</p>
         </div>
     </footer>
 
 </body>
 </html>
+
