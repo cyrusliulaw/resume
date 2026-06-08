@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyrus Liu | Intellectual Property & Technology Attorney</title>
+    <meta name="description" content="刘心扬 (Cyrus Liu)，专注于跨境知识产权争议解决、技术出海合规与商业秘密保护的专业律师。">
+    <style>
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: #fcfcfc;
+            color: #333333;
+            line-height: 1.75;
+        }
+
+        /* ===== Typography ===== */
+        h1, h2, h3 { color: #111827; font-weight: 600; letter-spacing: -0.01em; }
+        a { color: #1e3a8a; text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #1e40af; text-decoration: underline; }
+
+        /* ===== Layout ===== */
+        .container { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ===== Header / Hero Section ===== */
+        .hero {
+            padding: 5rem 0 4rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .hero-photo {
+            width: 220px;
+            height: 275px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            background: #f3f4f6;
+        }
+        .hero-text .name {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+        .hero-text .title {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #475569;
+            letter-spacing: 0.02em;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        .hero-text .value-prop {
+            font-size: 1.05rem;
+            color: #4b5563;
+            line-height: 1.8;
+            max-width: 520px;
+        }
+        .hero-text .value-prop strong {
+            color: #111827;
+            font-weight: 600;
+        }
+
+        /* ===== Navigation ===== */
+        nav {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            background: rgba(252, 252, 252, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+        nav a {
+            color: #6b7280;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        nav a:hover { color: #0f172a; text-decoration: none; }
+
+        /* ===== Sections ===== */
+        section { padding: 4.5rem 0; border-bottom: 1px solid #e5e7eb; }
+        section:last-of-type { border-bottom: none; }
+        
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #6b7280;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e5e7eb;
+        }
+
+        /* ===== About ===== */
+        .about-content p {
+            font-size: 0.95rem;
+            color: #374151;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* ===== Practice Areas (Services) ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        .service-card {
+            padding: 2rem;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .service-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border-color: #d1d5db;
+        }
+        .service-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.8rem;
+            color: #0f172a;
+        }
+        .service-card p {
+            font-size: 0.88rem;
+            color: #6b7280;
+            line-height: 1.7;
+        }
+
+        /* ===== Representative Matters ===== */
+        .matters-list { list-style: none; }
+        .matters-list li {
+            padding: 1.5rem 0;
+            border-bottom: 1px dashed #e5e7eb;
+            display: flex;
+            gap: 1.5rem;
+            align-items: baseline;
+        }
+        .matters-list li:last-child { border-bottom: none; }
+        .matter-tag {
+            flex-shrink: 0;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: #475569;
+            background: #f3f4f6;
+            padding: 0.25rem 0.6rem;
+            border-radius: 3px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .matter-desc {
+            font-size: 0.9rem;
+            color: #374151;
+            line-height: 1.7;
+        }
+        .matter-desc strong { color: #111827; font-weight: 600; }
+
+        /* ===== Insights & Publications ===== */
+        .pub-list { list-style: none; }
+        .pub-list li {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        .pub-list li:last-child { border-bottom: none; }
+        .pub-title {
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: #1e3a8a;
+            line-height: 1.5;
+            margin-bottom: 0.3rem;
+        }
+        .pub-title:hover { text-decoration: underline; }
+        .pub-meta {
+            font-size: 0.8rem;
+            color: #9ca3af;
+            font-style: italic;
+        }
+
+        /* ===== Credentials ===== */
+        .cred-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .cred-col h3 {
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #0f172a;
+            display: inline-block;
+        }
+        .cred-col ul { list-style: none; }
+        .cred-col li {
+            font-size: 0.88rem;
+            color: #374151;
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+        .cred-col li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: #9ca3af;
+            font-size: 0.6rem;
+            top: 0.4rem;
+        }
+        .cred-col .sub-text {
+            display: block;
+            font-size: 0.78rem;
+            color: #9ca3af;
+            margin-top: 0.1rem;
+        }
+
+        /* ===== Contact ===== */
+        .contact-grid {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        .contact-item {
+            font-size: 0.9rem;
+            color: #374151;
+        }
+        .contact-item span {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.3rem;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            background: #f9fafb;
+            margin-top: 2rem;
+        }
+        footer p { font-size: 0.75rem; color: #9ca3af; }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+            .hero-photo { margin: 0 auto; width: 180px; height: 225px; }
+            .hero-text .value-prop { margin: 0 auto; }
+            nav ul { justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+            .services-grid, .cred-grid { grid-template-columns: 1fr; }
+            .matters-list li { flex-direction: column; gap: 0.5rem; }
+            .container { padding: 0 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-grid">
+                <!-- 
+                  照片使用说明：
+                  请将您的商务正装照片重命名为 profile.jpg，
+                  并与此 index.html 文件放在同一个文件夹中上传至 GitHub。
+                -->
+                <img src="profile.jpg" alt="Cyrus Liu" class="hero-photo" onerror="this.style.display='none'">
+                <div class="hero-text">
+                    <h1 class="name">刘心扬 <span style="font-weight:300; font-size:1.8rem; color:#6b7280;">Cyrus Liu</span></h1>
+                    <p class="title">Intellectual Property & Technology Attorney</p>
+                    <p class="value-prop">
+                        兼具<strong>中美双重视角</strong>与<strong>理工法复合背景</strong>的知识产权律师。专注于为科技创新企业、跨国公司及科研机构提供跨境技术争议解决、全球自由实施（FTO）分析、商业秘密保护及数据合规的战略性法律服务。
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#about">Profile</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#matters">Experience</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#credentials">Credentials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Profile / About -->
+        <section id="about">
+            <h2 class="section-title">Professional Profile</h2>
+            <div class="about-content">
+                <p>
+                    在技术迭代与全球化交织的时代，知识产权已不再是单纯的防御工具，而是企业的核心商业资产。我的执业理念建立在“技术理解力”与“跨国法律逻辑”的双重基础之上。凭借材料科学与工程（工学学士）与知识产权法（法律硕士）的交叉学科背景，我能够深入理解半导体、新能源、生物医药及人工智能等前沿领域的技术实质，并将其转化为严密的法律保护策略。
+                </p>
+                <p>
+                    我先后在中伦、天同、浩天等中国顶尖律师事务所的知识产权团队深度执业，处理了大量涉及复杂技术比对的侵权诉讼与跨境合规项目。目前，我于宾夕法尼亚大学凯里法学院（Penn Carey Law）攻读知识产权与科技法方向法学硕士（LL.M.），并已获得纽约州上诉法院（Court of Appeals）的特别审查批准，正在取得美国纽约州律师执业资格。这使我能够以中美双边的法律视野，协助客户在全球化布局中规避风险、锁定胜局。
+                </p>
+            </div>
+        </section>
+
+        <!-- Services / Practice Areas -->
+        <section id="services">
+            <h2 class="section-title">Core Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>跨境技术争议与诉讼</h3>
+                    <p>代理涉及中美欧多法域的专利侵权、商标权属及不正当竞争纠纷。提供从技术特征比对、侵权判定分析到诉讼策略制定的全链条支持，协助客户应对复杂的跨境知识产权冲突。</p>
+                </div>
+                <div class="service-card">
+                    <h3>全球 FTO 与出海合规</h3>
+                    <p>为科技企业“走出去”提供全球自由实施（FTO）检索与侵权风险评估，覆盖全球主要国家及地区。结合目标市场的数据合规、内容审查及出口管制要求，构建系统性的出海合规防火墙。</p>
+                </div>
+                <div class="service-card">
+                    <h3>商业秘密与资产战略</h3>
+                    <p>协助新能源、高科技企业从0到1搭建商业秘密保护体系，开展内部IP风险排查。在技术许可、跨境交易及投融资并购中，提供深度的知识产权尽职调查与协议审查服务。</p>
+                </div>
+                <div class="service-card">
+                    <h3>复杂技术合同与许可</h3>
+                    <p>起草、审查及谈判跨境技术许可协议、研发合作协议及保密协议（NDA）。依托对技术底层逻辑的理解，确保法律条款与商业目的、技术边界的精准契合。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Representative Matters -->
+        <section id="matters">
+            <h2 class="section-title">Representative Matters</h2>
+            <ul class="matters-list">
+                <li>
+                    <span class="matter-tag">Litigation</span>
+                    <div class="matter-desc">
+                        协助某顶尖红圈所合伙人团队，处理多起涉及复杂机械与电子领域的<strong>专利侵权及商业秘密诉讼</strong>。独立完成中外专利文本翻译、技术特征比对分析及类案检索，为庭审策略提供核心技术支撑。
+                    </div>
+                </li>
+                <li>
+                    <span class="matter-tag">FTO & Compliance</span>
+                    <div class="matter-desc">
+                        主导某科技硬件企业的<strong>全球 FTO（自由实施）分析项目</strong>，排查涉及 12 个国家/地区/组织的专利壁垒与侵权风险，为企业产品出海提供规避设计与市场准入的法律意见。
+                    </div>
+                </li>
+                <li>
+                    <span class="matter-tag">Trade Secret</span>
+                    <div class="matter-desc">
+                        为某头部新能源电池企业<strong>系统性搭建商业秘密保护合规体系</strong>，涵盖员工保密协议重构、核心技术隔离机制及竞业限制策略，防范核心技术人员流失带来的资产减损。
+                    </div>
+                </li>
+                <li>
+                    <span class="matter-tag">Cross-border</span>
+                    <div class="matter-desc">
+                        为某知名互联网 APP 出海项目提供<strong>跨国数据合规与内容合规审查</strong>；审核并修改多份跨境技术交易与许可协议，平衡中美法律管辖权冲突与商业利益。
+                    </div>
+                </li>
+                <li>
+                    <span class="matter-tag">Due Diligence</span>
+                    <div class="matter-desc">
+                        参与某大型跨国医药企业的<strong>知识产权尽职调查项目</strong>，排查专利权属瑕疵与潜在诉讼风险；并协助某大型外企完成内部知识产权资产的风险排查与合规整改。
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Insights & Publications -->
+        <section id="insights">
+            <h2 class="section-title">Insights & Publications</h2>
+            <ul class="pub-list">
+                <li>
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5434435" target="_blank" class="pub-title">The 2024 Patent Valuation and Damages Workshop: A US-China Comparative Law Perspective</a>
+                    <div class="pub-meta">Minnesota Legal Studies Research Paper 2026-3 · SSRN · Co-author</div>
+                </li>
+                <li>
+                    <span class="pub-title" style="color:#111827; cursor:default;">《知识产权行政执法案例启示录》</span>
+                    <div class="pub-meta">王迁 主编 · 浦东新区知识产权局 等编 · 2025 · 参编作者</div>
+                </li>
+                <li>
+                    <a href="https://www.law.upenn.edu/live/profiles/3662-penn-entrepreneurial-engineers-and-penn-carey-law" target="_blank" class="pub-title">Penn Entrepreneurial Engineers and Penn Carey Law (PEEPL)</a>
+                    <div class="pub-meta">Penn Carey Law · 2025 · Project Leader (跨学科科技商业化与法律孵化项目)</div>
+                </li>
+                <li>
+                    <span class="pub-title" style="color:#111827; cursor:default;">行业洞察：《2022医药知识产权回顾与展望》 / 《混战中的动力电池企业与知识产权战略》</span>
+                    <div class="pub-meta">实务研究文章 · 2023 · 聚焦新能源与医药赛道IP布局</div>
+                </li>
+                <li>
+                    <a href="https://ieeexplore.ieee.org/document/9719272" target="_blank" class="pub-title">Finite Element Modelling and Failure Behaviour Analysis of CFRP Thin-Walled Tube</a>
+                    <div class="pub-meta">EI / IEEE Conference Publication · 2021 · First Author (早期理工科研究背景证明)</div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Credentials -->
+        <section id="credentials">
+            <h2 class="section-title">Credentials</h2>
+            <div class="cred-grid">
+                <div class="cred-col">
+                    <h3>Admissions & Qualifications</h3>
+                    <ul>
+                        <li>
+                            <strong>美国纽约州律师资格</strong>
+                            <span class="sub-text">经纽约州上诉法院 (Court of Appeals) 特别审查批准</span>
+                        </li>
+                        <li>
+                            <strong>中国法律职业资格</strong>
+                            <span class="sub-text">中华人民共和国司法部 (A证)</span>
+                        </li>
+                        <li>
+                            <strong>中国专利代理师资格</strong>
+                            <span class="sub-text">国家知识产权局 (CNIPA)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cred-col">
+                    <h3>Education</h3>
+                    <ul>
+                        <li>
+                            <strong>LL.M., IP & Technology Law</strong>
+                            <span class="sub-text">宾夕法尼亚大学凯里法学院 (Penn Carey Law) · Dean's Scholarship</span>
+                        </li>
+                        <li>
+                            <strong>J.M., 知识产权法</strong>
+                            <span class="sub-text">华东政法大学 · 保研 · GPA 3.99 (Rank 1) · 国家奖学金</span>
+                        </li>
+                        <li>
+                            <strong>B.E., 材料科学与工程</strong>
+                            <span class="sub-text">中国矿业大学 (211/双一流) · GPA 3.88</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span>Email</span>
+                    <a href="mailto:cyrusliulaw@outlook.com">cyrusliulaw@outlook.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>Phone / WeChat</span>
+                    +86 191 1717 7785
+                </div>
+                <div class="contact-item">
+                    <span>Locations</span>
+                    Philadelphia, PA / Shanghai, China
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Cyrus Liu. All rights reserved. | 本网站内容仅供展示专业背景，不构成正式法律意见。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
